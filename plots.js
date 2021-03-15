@@ -26,6 +26,33 @@ var layout = {
     title: "'Bar' Chart",
     xaxis: { title: "Drinks"},
     yaxis: { title: "% of Drinks Ordered"}
-   };
+};
 
-   Plotly.newPlot("plotArea2", data, layout);
+Plotly.newPlot("plotArea2", data, layout);
+
+var data = [{
+    labels: ["nonalcoholic beer", "nonalcoholic wine", "nonalcoholic martini", "nonalcoholic margarita", "ice tea", "nonalcoholic rum & coke", "nonalcoholic mai tai", "nonalcoholic gin & tonic"],
+    values: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
+    type: 'pie'
+}];
+
+var layout = {
+    title: "'Pie' Chart",
+};
+
+Plotly.newPlot("plotArea3", data, layout);
+
+var data = [{
+    x: [1, 3, 2, 4],
+    y: [10, 20, 30, 40],
+    mode: "markers",
+    type: "scatter"
+}];
+
+var layout = {
+    title: "Scatter Graph",
+    xaxis: {title: "x values"},
+    yaxis: {title: "y values"}
+};
+
+Plotly.newPlot("plotArea4", data, layout);
