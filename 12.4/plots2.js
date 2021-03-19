@@ -1,6 +1,6 @@
 
-d3.json("samples.json").then(function(data){console.log(data)});
-d3.json("samples.json").then(function(data){
+d3.json("../samples.json").then(function(data){console.log(data)});
+d3.json("../samples.json").then(function(data){
     //get all wash frequency from metadata
     wfreq = data.metadata.map(person => person.wfreq)
     //sort descending
