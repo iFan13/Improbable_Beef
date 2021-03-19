@@ -124,16 +124,34 @@ var doubled = numbers.map(num => num * 2);
 console.log(doubled);
 
 var familyAge = [3,2,39,37,9];
-//default function: (a,b)=>a-b for ascending; descending b-a. reverse() also works but needs to be sorted first
+//default function: (a,b)=>a-b for ascending; descending b-a. reverse() also works but needs to be sorted first **remember sort and reverse are in place
 var sortedAge = familyAge.sort((a,b) => a - b);
-console.log("Sorted Age" + sortedAge);
+console.log("Sorted Age: " + sortedAge);
+
 var descSortedAge = familyAge.sort((a,b) => b-a);
-console.log("Desc Sorted Age" + descSortedAge);
-array = sortedAge.reverse()
-console.log(array);
+console.log("Desc Sorted Age: " + descSortedAge);
+
+var descSortedAge2 = familyAge.sort((a,b) => a - b);
+descSortedAge2.reverse()
+console.log("Desc Sorted Age2: " + descSortedAge2);
+
+var revSortedAge = sortedAge.reverse()
+console.log("Sorted Age Rev: "+ revSortedAge)
 
 //slice
 
 var words = ['seal', 'dog', 'scorpion', 'orangutan', 'salamander'];
 var sliceFirst3 = words.slice(0,3);
 console.log(sliceFirst3)
+
+var array1 = [1, 2, 3];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+var reversed = array1.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["three", "two", "one"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// expected output: "array1:" Array ["three", "two", "one"]
