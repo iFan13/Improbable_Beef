@@ -56,7 +56,7 @@ function buildMetadata(sample) {
     
     //var start = performance.now()
     for (category in result) {
-      PANEL.append("h6").text(`${category.toUpperCase()}: ${result[category]}`)
+      PANEL.append("h5").text(`${category.toUpperCase()}: ${result[category]}`)
     } // performance difference of 0.1s in favour
     //var end = performance.now()
     //console.log(end-start) //0.0599
@@ -94,7 +94,7 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last.  
 
-    var yticks = all_otu_ids.map(x=> "OTU "+x.toString()).slice(0,10).reverse()
+    var yticks = all_otu_ids.map(x=> `OTU ${x.toString()} `).slice(0,10).reverse()
     var top_10_otu_labels = all_otu_labels.map(x => x).slice(0,10).reverse()
     var top_10_sample_values = all_sample_values.map(x=>x).slice(0,10).reverse()
 
@@ -110,7 +110,8 @@ function buildCharts(sample) {
     var barLayout = {
       title: "Top 10 Bacteria Cultures Found",
       yaxis: {ticktext: top_10_otu_labels},
-      bargap:0.1
+      bargap:0.2,
+      paper_bgcolor: "lightgray"
     };
 
     // Use Plotly to plot the data with the layout. 
@@ -126,15 +127,18 @@ function buildCharts(sample) {
         colorscale: 'Earth',
         size: all_sample_values
       },
-      text: all_otu_labels, //array
-      hovertemplate: `(%{x}, %{y})<br>%{text}<extra></extra>`
+      text: all_otu_labels,
+      hovertemplate: `(%{x}, %{y})<br>%{text}<extra></extra>`,
+      bgcolor: "#DEDEDE"
     }];
 
     // Create the layout for the bubble chart.
     var bubbleLayout = {
       hovermode:'closest',
       title: "Bacteria Cultures Per Sample" ,
-      xaxis: {title: "OTU ID", zeroline:false}      
+      xaxis: {title: "OTU ID"},
+      margin: { t: 60, r: 40, l: 40, b: 70 },
+      paper_bgcolor: "lightgray"
     };
 
     // D2: 3. Use Plotly to plot the data with the layout.
@@ -150,7 +154,6 @@ function buildCharts(sample) {
       gauge: {
         axis: {range: [null, 14], tickwidth: 1, tickcolor: "black", tickmode:"linear", tick0: 0, dtick: 2},
         bar: {color: "black"},
-        bgcolor: "",
         steps: [
           {range: [0,2], color: "crimson"},
           {range: [2,4], color: "orangered"},
