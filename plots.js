@@ -139,7 +139,7 @@ function buildCharts(sample) {
       xaxis: {title: "OTU ID"},
       margin: { t: 60, r: 40, l: 40, b: 70 },
       paper_bgcolor: "silver",
-      plot_bgcolor: "lightgray"
+      plot_bgcolor: "gray"
     };
 
     // D2: 3. Use Plotly to plot the data with the layout.
