@@ -111,7 +111,8 @@ function buildCharts(sample) {
       title: "Top 10 Bacteria Cultures Found",
       yaxis: {ticktext: top_10_otu_labels},
       bargap:0.2,
-      paper_bgcolor: "lightgray"
+      paper_bgcolor: "silver",
+      plot_bgcolor: "lightgray"
     };
 
     // Use Plotly to plot the data with the layout. 
@@ -129,7 +130,6 @@ function buildCharts(sample) {
       },
       text: all_otu_labels,
       hovertemplate: `(%{x}, %{y})<br>%{text}<extra></extra>`,
-      bgcolor: "#DEDEDE"
     }];
 
     // Create the layout for the bubble chart.
@@ -138,7 +138,8 @@ function buildCharts(sample) {
       title: "Bacteria Cultures Per Sample" ,
       xaxis: {title: "OTU ID"},
       margin: { t: 60, r: 40, l: 40, b: 70 },
-      paper_bgcolor: "lightgray"
+      paper_bgcolor: "silver",
+      plot_bgcolor: "lightgray"
     };
 
     // D2: 3. Use Plotly to plot the data with the layout.
@@ -174,7 +175,7 @@ function buildCharts(sample) {
         font: {size:20}
       },
       margin: { t: 100, r: 50, l: 50, b: 20 },
-      paper_bgcolor: "lightgray"
+      paper_bgcolor: "silver"
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
