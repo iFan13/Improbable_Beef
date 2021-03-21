@@ -94,14 +94,14 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last.  
 
-    // create an array of arrays with sample values indexed
+    // create an array of arrays with samples' sample_values indexed
     var all_sample_values_indexed = [];
     for (var index = 0; index < all_sample_values.length;index++){
       all_sample_values_indexed[index]=[all_sample_values[index], index];
     }
 
     // sort descending by sample values
-    all_sample_values_indexed.sort(a,b=> b[0]-a[0])
+    all_sample_values_indexed.sort((a,b)=> b[0]-a[0])
 
     // sort otu_labels & otu_ids by sample_values indexed's second index ie: the original index location
     var all_otu_labels_resort = [];
@@ -109,33 +109,13 @@ function buildCharts(sample) {
     if (all_otu_ids.length == all_sample_values_indexed.length && all_otu_labels.length == all_sample_values_indexed.length){
       for (var index = 0; index < all_sample_values_indexed.length; index++){
         all_otu_labels_resort[index] = all_otu_labels[all_sample_values_indexed[index][1]];
-        all_otu_ids_resort[index]=all_otu_labels[all_sample_values_indexed[index][1]];
+        all_otu_ids_resort[index]=all_otu_ids[all_sample_values_indexed[index][1]];
       }
     }
 
-    
-    var yticks_true = all_otu_ids_resort.map(element=> `OTU ${element.toString()} `).slice(0,10)
-    var top_10_otu_labels_true = all_otu_labels_resort.map(element => element).slice(0,10)
-    var top_10_sample_values_true = all_sample_values_indexed.map(element=>element[0]).slice(0,10)
-        
-    var yticks = all_otu_ids.map(x=> `OTU ${x.toString()} `).slice(0,10).reverse()  
-    var top_10_otu_labels = all_otu_labels.map(x => x).slice(0,10).reverse()
-    var top_10_sample_values = all_sample_values.map(x=>x).slice(0,10).reverse()
-
-    console.log("yticks")
-    console.log(yticks_true)
-    console.log(yticks)
-    console.log("labels")
-    console.log(top_10_otu_labels_true)
-    console.log(top_10_otu_labels)
-    console.log("values")
-    console.log(top_10_sample_values_true)
-    console.log(top_10_sample_values)
-
-
-
-
-
+    var yticks = all_otu_ids_resort.slice(0,10).map(element=> `OTU ${element.toString()} `).reverse()
+    var top_10_otu_labels = all_otu_labels_resort.slice(0,10).map(element => element).reverse()
+    var top_10_sample_values = all_sample_values_indexed.slice(0,10).map(element=>element[0]).reverse()
 
     // Create the trace for the bar chart. 
     var barData = [{

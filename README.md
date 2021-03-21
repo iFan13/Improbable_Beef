@@ -25,4 +25,33 @@ The data source is attached and may be found [here](/samples.json).
 
 ## Recommendations
 
-The [script](/plot.js) does have a flaw in that if the sample_values array in the samples object are not in a pre-sorted order, it would be necessary to perform a sort on the sample_values then repeat the new order of original indices onto the otu_ids and otu_labels arrays.
+The [script](/plot.js) does have a flaw in that if the sample_values array in the samples object are not in a pre-sorted order, it would be necessary to perform a sort on the sample_values then repeat the new order of original indices onto the otu_ids and otu_labels arrays. In this script, insurance for such an event is implemented by the following code.
+
+```javascript
+// create an array of arrays with samples' sample_values indexed
+var all_sample_values_indexed = [];
+for (var index = 0; index < all_sample_values.length;index++){
+    all_sample_values_indexed[index]=[all_sample_values[index], index];
+}
+
+// sort descending by sample values
+all_sample_values_indexed.sort((a,b)=> b[0]-a[0])
+
+// sort otu_labels & otu_ids by sample_values indexed's second index ie: the original index location
+var all_otu_labels_resort = [];
+var all_otu_ids_resort = [];
+if (all_otu_ids.length == all_sample_values_indexed.length && all_otu_labels.length == all_sample_values_indexed.length){
+    for (var index = 0; index < all_sample_values_indexed.length; index++){
+    all_otu_labels_resort[index] = all_otu_labels[all_sample_values_indexed[index][1]];
+    all_otu_ids_resort[index]=all_otu_ids[all_sample_values_indexed[index][1]];
+    }
+}
+```
+
+Before performing the remainder of the operations
+
+```javascript
+var yticks = all_otu_ids_resort.slice(0,10).map(element=> `OTU ${element.toString()} `).reverse()
+var top_10_otu_labels = all_otu_labels_resort.slice(0,10).map(element => element).reverse()
+var top_10_sample_values = all_sample_values_indexed.slice(0,10).map(element=>element[0]).reverse()
+```
