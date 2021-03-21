@@ -1,4 +1,4 @@
-# Improbable_Beef
+# Improbable Beef
 
 ## What is Improbable Beef?
 
