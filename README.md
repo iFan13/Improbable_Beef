@@ -25,7 +25,7 @@ The data source is attached and may be found [here](/samples.json).
 
 ## Recommendations
 
-The [script](/plot.js) does have a flaw in that if the sample_values array in the samples object are not in a pre-sorted order, it would be necessary to perform a sort on the sample_values then repeat the new order of original indices onto the otu_ids and otu_labels arrays. In this script, insurance for such an event is implemented by the following code.
+The original requested [script](/plot.js) does have a flaw in that if the sample_values array in the samples object are not in a pre-sorted order, it would be necessary to perform a sort on the sample_values then repeat the new order of original indices onto the otu_ids and otu_labels arrays. In this script, insurance for such an event is implemented by the following code.
 
 ```javascript
 // create an array of arrays with samples' sample_values indexed
