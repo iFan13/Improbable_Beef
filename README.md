@@ -2,7 +2,7 @@
 
 ## What is Improbable Beef?
 
-Improbable Beef is a food startup company. They have partnered with Roza, a biological researcher in a prominent microbiology laboratory. Their goal is to discover and document bacterial species with particular interest in baceterial species that have the ability to synthesize proteins that taste like beef. Roza hypothesizes that the human navel may be able to play host to this desired bacteria. To test her hypothesis roza has sampled the navels of people across the country to identify bacterial species that colonize the human navel.
+Improbable Beef is a food startup company. They have partnered with Roza, a biological researcher in a prominent microbiology laboratory. Their goal is to discover and document bacterial species with particular interest in baceterial species that have the ability to synthesize proteins that taste like beef. Roza hypothesizes that the human navel may be able to play host to this desired bacteria. To test her hypothesis Roza has sampled the navels of people across the country to identify bacterial species that colonize the human navel.
 
 ## Repository Overview
 
@@ -11,13 +11,18 @@ This repository serves as the back end hosting for the deployed dashboard [https
 ## Resources
 
 Resources used in this repository include:
+
 * HTML
-    * Bootstrap
+  * Bootstrap
 * JSON
 * Javascript
-    * plotly
-    * D3
+  * plotly
+  * D3
 
 ## Data sources
 
-The data source is attached and may be found [here](/samples.json)
+The data source is attached and may be found [here](/samples.json).
+
+## Recommendations
+
+The [script](/plot.js) does have a flaw in that if the sample_values array in the samples object are not in a pre-sorted order, it would be necessary to perform a sort on the sample_values then repeat the new order of original indices onto the otu_ids and otu_labels arrays.

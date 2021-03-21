@@ -7,9 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    a:link{
+      color:yellow;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    a:visited{
+      color: red;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
-<body style="background-color: #2C3E50; color:linen; text-align: center;" >
+<body style="background-color: #2C3E50; color:linen; text-align: center; font-size: 13;" >
   <div class="container">
     <div class="row" >
       <div class="col-md-12 jumbotron text-center"
@@ -18,6 +30,10 @@
         <h1>Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
+    </div>
+    <div class="row">Welcome to the Improbable Beef volunteer & researcher dashboard. Participants have been given a subject personal ID number to maintain anonymity.<br>
+      Should Improbable Beef discover suitable species of bacteria that synthesizes the beef tasting protein, a list of viable bacteria will be listed here as their OTU ID.<br>
+      For participants that possess the bacteria species and strain and wish to sell to Improbable Beef, please contact <a href="mailto:info@improbablebeef.com">info@improbablebeef.com</a><br>.
     </div>
     <div class="row" >
       <div class="col-md-2">
@@ -40,19 +56,21 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div>The below chart is not exclusive to all cultures found.</div>
+        
         <div id="bar"></div>
+        <div>The above chart is not exclusive to all cultures found.</div>
       </div>
       <div class="col-md-5">
-        <div>Representation assumes a maximum of 2 scrubs per day.</div>
+        
         <div id="gauge"></div>
+        <div>Representation assumes a maximum of 2 scrubs per day.</div>
       </div>
     </div>
     <div class="row">
       <br>
-      Cultures per Sample plots all bacteria types and counts. Click and box-drag to zoom in on a particular section.
       <div class="col-md-12">
         <div id="bubble"></div>
+        <div>Cultures per Sample plots all bacteria types and counts. Click and box-drag to zoom in on a particular section.</div>
       </div>
     </div>
   </div>
